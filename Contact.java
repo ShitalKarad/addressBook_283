@@ -26,39 +26,20 @@ public class Contact {
 		this.zip = zip;
 		this.gmail = gmail;
 	}
-	
+	 public String toStore(){
+	        return String.format(name+" "+ surName+ " "+ address+" "  +city+" " + state+" "+ contactNumber+
+	                " "+ zip+" "+ gmail);
+	    }
+
 	
 	public Contact() {
 		
 	}
-
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(address, city, contactNumber, gmail, name, state, surName, zip);
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Contact other = (Contact) obj;
-		return Objects.equals(address, other.address) && Objects.equals(city, other.city)
-				&& Objects.equals(contactNumber, other.contactNumber) && Objects.equals(gmail, other.gmail)
-				&& Objects.equals(name, other.name) && Objects.equals(state, other.state)
-				&& Objects.equals(surName, other.surName) && Objects.equals(zip, other.zip);
-	}
-
-
+	
 	@Override
 	public String toString() {
-		return "Contact [name=" + name + ", surName=" + surName + ", address=" + address + ", city=" + city + ", state="
-				+ state + ", contactNumber=" + contactNumber + ", zip=" + zip + ", gmail=" + gmail + "]";
+		return "+name:" +" "+ name + "\n surName:" +" "+ surName + "\n address:" +" "+ address + "\n city:" + " "+city + "\n state:"
+				+ " "+state + "\n contactNumber:" + contactNumber + "\n zip:" +" "+ zip + "\n gmail:" +" "+ gmail ;
 	}
 	
 	public String getName() {
