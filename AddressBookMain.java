@@ -7,6 +7,8 @@ public class AddressBookMain {
 		System.out.println(addressBook);
 		addressBook.editContact();
 		System.out.println(addressBook);
+		addressBook.deleteContact();
+		System.out.println(addressBook);
 	}
 
 }
