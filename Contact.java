@@ -26,11 +26,6 @@ public class Contact {
 		this.zip = zip;
 		this.gmail = gmail;
 	}
-	 public String toStore(){
-	        return String.format(name+" "+ surName+ " "+ address+" "  +city+" " + state+" "+ contactNumber+
-	                " "+ zip+" "+ gmail);
-	    }
-
 	
 	public Contact() {
 		
@@ -38,7 +33,7 @@ public class Contact {
 	
 	@Override
 	public String toString() {
-		return "+name:" +" "+ name + "\n surName:" +" "+ surName + "\n address:" +" "+ address + "\n city:" + " "+city + "\n state:"
+		return "name:" +" "+ name + "\n surName:" +" "+ surName + "\n address:" +" "+ address + "\n city:" + " "+city + "\n state:"
 				+ " "+state + "\n contactNumber:" + contactNumber + "\n zip:" +" "+ zip + "\n gmail:" +" "+ gmail ;
 	}
 	
