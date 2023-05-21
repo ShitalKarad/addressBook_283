@@ -33,8 +33,8 @@ public class AddressBook {
 	}
 	@Override
 	 public String toString() {
-	        return "contactList: " + contactList +
-	                '}';
+	        return "contactList: " + contactList 
+	                +"\n";
 	    }
 
 	public void editContact() {
