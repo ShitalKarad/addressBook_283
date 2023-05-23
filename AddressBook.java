@@ -2,15 +2,19 @@ package com.brigelabz;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class AddressBook {
 	ArrayList<Contact> contactList = new ArrayList<>();
 
-	public void addContacts() {
+	HashMap<String, AddressBook> aHashMap = new HashMap<>();
+	Scanner sc = new Scanner(System.in);
+
+	public ArrayList<Contact> addContacts( ArrayList<Contact> contactList) {
 
 		Contact contactObj = new Contact();
-		Scanner sc = new Scanner(System.in);
+
 		System.out.println("Enter contact details");
 		System.out.println("Enter name ");
 		contactObj.setName(sc.next());
@@ -29,17 +33,20 @@ public class AddressBook {
 		System.out.println("Enter email ");
 		contactObj.setGmail(sc.next());
 		contactList.add(contactObj);
+		return contactList;
 
 	}
+
 	@Override
 	 public String toString() {
-	        return "contactList: " + contactList 
-	                +"\n";
+	        return "AddressBook{" +
+	                "contactList=" + contactList +
+	                '}';
 	    }
+
 
 	public void editContact() {
 
-		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter first name:");
 		String name = sc.next();
 		for (Contact contactObj : contactList) {
@@ -81,16 +88,37 @@ public class AddressBook {
 			}
 		}
 	}
-	
-	 public void deleteContact() {
-	        Scanner sc = new Scanner(System.in);
-	        System.out.print("Enter first name:");
-	        String name = sc.next();
-	        for (Contact contactObj : contactList) {
-	            if (name.equals(contactObj.getName())) {
-	                contactList.remove(contactObj);
-	                break;
-	            }
-	        }
-	    }
+
+	public void deleteContact() {
+
+		System.out.print("Enter first name:");
+		String name = sc.next();
+		for (Contact contactObj : contactList) {
+			if (name.equals(contactObj.getName())) {
+				contactList.remove(contactObj);
+				break;
+			}
+		}
+	}
+
+	public void createAddressBook(AddressBook ad) {
+		System.out.println("Enter your address book name ..!");
+		String addressBookName = sc.nextLine();
+		aHashMap.put(addressBookName, ad);
+	}
+
+	public void displayAddressBook(ArrayList<Contact> arraylist) {
+
+		System.out.println("My addressBoo are ");
+		System.out.println(aHashMap.keySet());
+
+		for (Contact key : arraylist) {
+			System.out.println(key);
+		}
+	}
+
+	public ArrayList crateNewAddressBook() {
+		ArrayList addressBookName = new ArrayList();
+		return addressBookName;
+	}
 }
