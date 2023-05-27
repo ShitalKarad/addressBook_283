@@ -45,7 +45,7 @@ public class AddressBookMain {
 				break;
 				
 			case 2:
-				System.out.println(addressBookMap);
+				System.out.println(addressBook);
 				break;
 				
 			case 3:

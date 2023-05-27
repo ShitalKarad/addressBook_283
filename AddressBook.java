@@ -6,44 +6,50 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class AddressBook {
-	ArrayList<Contact> contactList = new ArrayList<>();
+	static ArrayList<Contact> contactList = new ArrayList<>();
 
 	HashMap<String, AddressBook> aHashMap = new HashMap<>();
 	Scanner sc = new Scanner(System.in);
 
-	public ArrayList<Contact> addContacts( ArrayList<Contact> contactList) {
+	public ArrayList<Contact> addContacts(ArrayList<Contact> contactList) {
 
 		Contact contactObj = new Contact();
 
 		System.out.println("Enter contact details");
 		System.out.println("Enter name ");
-		contactObj.setName(sc.next());
-		System.out.println("Enter lastName ");
-		contactObj.setSurName(sc.next());
-		System.out.println("Enter Address ");
-		contactObj.setAddress(sc.next());
-		System.out.println("Enter city ");
-		contactObj.setCity(sc.next());
-		System.out.println("Enter state ");
-		contactObj.setState(sc.next());
-		System.out.println("Enter zip ");
-		contactObj.setZip(sc.next());
-		System.out.println("Enter moNumber ");
-		contactObj.setContactNumber(sc.next());
-		System.out.println("Enter email ");
-		contactObj.setGmail(sc.next());
-		contactList.add(contactObj);
+		String name = (sc.nextLine());
+		if (findDuplicates(name) == true) {
+			System.out.println("This Name is already present in your dictionary. please add Another name \n");
+		} else {
+			contactObj.setName(sc.next());
+			System.out.println("Enter lastName ");
+			contactObj.setSurName(sc.next());
+			System.out.println("Enter Address ");
+			contactObj.setAddress(sc.next());
+			System.out.println("Enter city ");
+			contactObj.setCity(sc.next());
+			System.out.println("Enter state ");
+			contactObj.setState(sc.next());
+			System.out.println("Enter zip ");
+			contactObj.setZip(sc.next());
+			System.out.println("Enter moNumber ");
+			contactObj.setContactNumber(sc.next());
+			System.out.println("Enter email ");
+			contactObj.setGmail(sc.next());
+			contactList.add(contactObj);
+		}
 		return contactList;
+	}
 
+	 public static boolean findDuplicates(String name) {
+
+		return contactList.stream().anyMatch(contact -> contact.getName().equals(name));
 	}
 
 	@Override
-	 public String toString() {
-	        return "AddressBook{" +
-	                "contactList=" + contactList +
-	                '}';
-	    }
-
+	public String toString() {
+		return "AddressBook{" + "contactList=" + contactList + '}';
+	}
 
 	public void editContact() {
 
